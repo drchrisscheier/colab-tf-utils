@@ -45,7 +45,7 @@ class GDriveSync:
         # prompt the user to access his Google Drive via the API
 
         self.drive_service = build('drive', 'v3')
-        self.default_folder = self.find_items('Colab Notebooks')[0]
+        self.default_folder = self.find_items('Results')[0]
 
     def find_items(self, name):
         """
