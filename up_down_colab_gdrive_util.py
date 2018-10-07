@@ -1,23 +1,7 @@
-_res = get_ipython().run_cell("""
-!pip install tqdm
-!pip install keras
-!rm tboard.py
-!wget https://raw.githubusercontent.com/mixuala/colab_utils/master/tboard.py
-!rm -rf log/
-""")
-
 
 import os
-import tboard
 import copy
 from tqdm import tqdm
-# set paths
-ROOT = os.path.abspath('.')
-LOG_DIR = os.path.join(ROOT, 'log')
-
-# will install `ngrok`, if necessary
-# will create `log_dir` if path does not exist
-tboard.launch_tensorboard( bin_dir=ROOT, log_dir=LOG_DIR )
 
 from collections import namedtuple
 import keras
@@ -45,7 +29,7 @@ class GDriveSync:
         # prompt the user to access his Google Drive via the API
 
         self.drive_service = build('drive', 'v3')
-        self.default_folder = self.find_items('Results')[0]
+        self.default_folder = self.find_items('Colab Notebooks')[0]
 
     def find_items(self, name):
         """
