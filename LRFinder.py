@@ -1,5 +1,6 @@
 from keras.callbacks import Callback
 import matplotlib.pyplot as plt
+import keras.backend as K
 
 class LRFinder(Callback):
     
