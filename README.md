@@ -1,2 +1,3 @@
 # colab-tf-utils
-up and download gdrive and colab
+1. up and download gdrive and colab
+2. sgdr: cyclic learning rate schedule
