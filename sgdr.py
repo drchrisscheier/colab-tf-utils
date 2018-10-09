@@ -70,7 +70,6 @@ class SGDRScheduler(Callback):
 
         self.batch_since_restart += 1
         K.set_value(self.model.optimizer.lr, self.clr())
-        print('on_batch_end (cur:)', K.get_value(self.model.optimizer.lr))
     
     def on_epoch_end(self, epoch, logs={}):
         '''Check for end of current cycle, apply restarts when necessary.'''
