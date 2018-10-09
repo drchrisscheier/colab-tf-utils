@@ -36,6 +36,7 @@ class LRFinder(Callback):
         self.total_iterations = steps_per_epoch * epochs
         self.iteration = 0
         self.history = {}
+        print('LRFinder Init ... total iterations:', self.total_iterations)
         
     def clr(self):
         '''Calculate the learning rate.'''
