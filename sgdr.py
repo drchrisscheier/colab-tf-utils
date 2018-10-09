@@ -77,6 +77,7 @@ class SGDRScheduler(Callback):
             self.next_restart += self.cycle_length
             self.max_lr *= self.lr_decay
             self.best_weights = self.model.get_weights()
+            print('restarting (max:, cur:)', self.max_lr, K.get_value(self.model.optimizer.lr))
 
     def on_train_end(self, logs={}):
         '''Set weights to the values from the end of the most recent cycle for best performance.'''
