@@ -47,7 +47,8 @@ class SGDRScheduler(Callback):
         self.mult_factor = mult_factor
 
         self.history = {}
-
+        print(' init SGDRScheduler')
+        
     def clr(self):
         '''Calculate the learning rate.'''
         fraction_to_restart = self.batch_since_restart / (self.steps_per_epoch * self.cycle_length)
@@ -55,7 +56,7 @@ class SGDRScheduler(Callback):
         return lr
 
     def on_train_begin(self, logs={}):
-        '''Initialize the learning rate to the minimum value at the start of training.'''
+        '''Initialize the learning rate to the max value at the start of training.'''
         logs = logs or {}
         K.set_value(self.model.optimizer.lr, self.max_lr)
         print('on_train_begin (cur:)', K.get_value(self.model.optimizer.lr))
