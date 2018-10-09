@@ -58,6 +58,7 @@ class SGDRScheduler(Callback):
         '''Initialize the learning rate to the minimum value at the start of training.'''
         logs = logs or {}
         K.set_value(self.model.optimizer.lr, self.max_lr)
+        print('on_train_begin (cur:)', K.get_value(self.model.optimizer.lr))
 
     def on_batch_end(self, batch, logs={}):
         '''Record previous batch statistics and update the learning rate.'''
@@ -68,7 +69,8 @@ class SGDRScheduler(Callback):
 
         self.batch_since_restart += 1
         K.set_value(self.model.optimizer.lr, self.clr())
-
+        print('on_batch_end (cur:)', K.get_value(self.model.optimizer.lr))
+    
     def on_epoch_end(self, epoch, logs={}):
         '''Check for end of current cycle, apply restarts when necessary.'''
         if epoch + 1 == self.next_restart:
