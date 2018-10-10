@@ -23,7 +23,7 @@ class SGDRScheduler(Callback):
         cycle_length: Initial number of epochs in a cycle.
         mult_factor: Scale epochs_to_restart after each full cycle completion.
     # References
-        Blog post: jeremyjordan.me/nn-learning-rate
+        Blog post: https://www.jeremyjordan.me/nn-learning-rate/
         Original paper: http://arxiv.org/abs/1608.03983
     '''
     def __init__(self,
